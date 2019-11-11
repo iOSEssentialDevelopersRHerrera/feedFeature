@@ -27,15 +27,15 @@ class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_loadTwice_requestsDataFromURLTwice() {
-          let url = URL(string: "https://a-given-url.com")!
-          let (sut, client) = makeSUT(url: url)
-          
-          sut.load()   { _ in }
-          sut.load()  { _ in }
-          
-          
-          XCTAssertEqual(client.requestedURLs, [url, url])
-      }
+        let url = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        sut.load()   { _ in }
+        sut.load()  { _ in }
+        
+        
+        XCTAssertEqual(client.requestedURLs, [url, url])
+    }
     
     func test_load_deiversErrorOnClientError() {
         let (sut, client) = makeSUT()
@@ -51,17 +51,21 @@ class RemoteFeedLoaderTests: XCTestCase {
     }
     
     
-       func test_load_deiversErrorOnNon200HttpResponse() {
-           let (sut, client) = makeSUT()
-           
-           var capturedErrors = [RemoteFeedLoader.Error]()
-           sut.load() { capturedErrors.append($0) }
-           
+    func test_load_deiversErrorOnNon200HttpResponse() {
+        let (sut, client) = makeSUT()
+        let samples = [199,201, 300, 400, 500].enumerated()
         
-           client.complete(withStatusCode: 400)
-           
-           XCTAssertEqual(capturedErrors, [.invalidData])
-       }
+        samples.forEach {index, code in
+            var capturedErrors = [RemoteFeedLoader.Error]()
+            sut.load() { capturedErrors.append($0) }
+            
+            client.complete(withStatusCode: code, at: index)
+            
+            XCTAssertEqual(capturedErrors, [.invalidData])
+            
+        }
+        
+    }
     
     
     //MARK: - Helpers
@@ -89,9 +93,9 @@ class RemoteFeedLoaderTests: XCTestCase {
         
         func complete(withStatusCode code: Int, at index:Int = 0) {
             let response = HTTPURLResponse(url: requestedURLs[index],
-                        statusCode: code,
-                        httpVersion: nil,
-                        headerFields: nil)
+                                           statusCode: code,
+                                           httpVersion: nil,
+                                           headerFields: nil)
             
             messages[index].completion(nil, response)
         }
