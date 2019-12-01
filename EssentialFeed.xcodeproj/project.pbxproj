@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F60D984F239434E7009653EB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D984E239434E6009653EB /* HTTPClient.swift */; };
 		F689164F237881B900A6CDD8 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F689164E237881B900A6CDD8 /* RemoteFeedLoader.swift */; };
 		F6E649E7236FF967006A8735 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E649DD236FF967006A8735 /* EssentialFeed.framework */; };
 		F6E649EE236FF967006A8735 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E649E0236FF967006A8735 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F60D984E239434E6009653EB /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		F689164E237881B900A6CDD8 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		F6E649DD236FF967006A8735 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E649E0236FF967006A8735 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				F689164E237881B900A6CDD8 /* RemoteFeedLoader.swift */,
+				F60D984E239434E6009653EB /* HTTPClient.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
@@ -85,8 +88,8 @@
 		F6E649DF236FF967006A8735 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				F689164D2378819800A6CDD8 /* FeedAPI */,
 				F6E649FB236FFB0B006A8735 /* FeedFeature */,
+				F689164D2378819800A6CDD8 /* FeedAPI */,
 				F6E649E0236FF967006A8735 /* EssentialFeed.h */,
 				F6E649E1236FF967006A8735 /* Info.plist */,
 			);
@@ -223,6 +226,7 @@
 			files = (
 				F6E649FA236FFA56006A8735 /* FeedLoader.swift in Sources */,
 				F689164F237881B900A6CDD8 /* RemoteFeedLoader.swift in Sources */,
+				F60D984F239434E7009653EB /* HTTPClient.swift in Sources */,
 				F6E649F8236FF9D4006A8735 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
