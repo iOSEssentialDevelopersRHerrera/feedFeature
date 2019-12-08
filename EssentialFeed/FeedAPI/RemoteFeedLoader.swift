@@ -17,10 +17,9 @@ public final class RemoteFeedLoader {
         case invalidData
     }
     
-    public enum Result: Equatable {
-        case success([FeedItem])
-        case failure(Error)
-    }
+    public typealias Result = LoadFeedResult<Error>
+    
+   
     
    public  init(url:URL, client:HttpClient) {
         self.url = url
