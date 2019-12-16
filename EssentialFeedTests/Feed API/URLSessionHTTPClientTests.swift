@@ -1,6 +1,7 @@
 import XCTest
 import EssentialFeed
 
+
 class URLSessionHttpClient {
     private let session: URLSession
     
@@ -74,12 +75,6 @@ class URLSessionHTTPClientTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-    
-    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
-          addTeardownBlock { [weak instance] in
-              XCTAssertNil(instance, "Instance should have been deallocated. Potentuak memory leak", file: file, line: line)
-          }
-      }
     
     private class URLProtocolStub: URLProtocol {
         
