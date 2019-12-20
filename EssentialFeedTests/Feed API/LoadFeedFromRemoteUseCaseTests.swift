@@ -1,15 +1,7 @@
-//
-//  RemoteFeedLoaderTests.swift
-//  EssentialFeedTests
-//
-//  Created by Ricardo Herrera Petit on 11/4/19.
-//  Copyright © 2019 Ricardo Herrera Petit. All rights reserved.
-//
-
 import XCTest
 import EssentialFeed
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     func test_init_doesNotrequestDataFromURL() {
         let (_, client) = makeSUT()
