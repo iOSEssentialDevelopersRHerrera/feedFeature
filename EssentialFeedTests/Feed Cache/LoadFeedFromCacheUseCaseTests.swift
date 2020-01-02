@@ -54,7 +54,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
          let (sut, store) =  makeSUT(currentDate: { fixedCurrentDate })
         
         expect(sut, toCompleteWith: .success([]), when: {
-            store.completeRetrieval(with: feed.local, timestamp: sevenDaysOldTimestamp)
+            store.completeRetrieval(with: feed.local, timestamp: moreThanSevenDaysOldTimestamp)
         })
     }
     
