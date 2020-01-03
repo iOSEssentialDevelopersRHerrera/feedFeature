@@ -81,11 +81,11 @@ extension LocalFeedLoader {
             case .empty, .found: break
             }
         }
-       
+        
     }
     
 }
-    
+
 private extension Array where Element  == FeedImage {
     func toLocal() -> [LocalFeedImage] {
         return map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url) }
